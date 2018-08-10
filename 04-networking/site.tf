@@ -18,7 +18,7 @@ resource "aws_route" "internet_access" {
 }
 
 resource "aws_subnet" "main" {
-  count = "${length(var.subnets)}"
+  count                   = "${length(var.subnets)}"
   cidr_block              = "${lookup(var.subnets[count.index], "cidr")}"
   vpc_id                  = "${aws_vpc.main.id}"
   map_public_ip_on_launch = true

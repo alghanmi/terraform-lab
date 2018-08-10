@@ -4,24 +4,26 @@ variable "resource_prefix" {
 
 variable "vpc" {
   type = "map"
+
   default {
-    name = "main",
+    name = "main"
     cidr = "10.0.0.0/16"
   }
 }
 
 variable "subnets" {
   type = "list"
+
   default = [
     {
-      name = "subnet-01",
-      cidr = "10.0.0.0/24",
-      az = "us-east-1a",
+      name = "subnet-01"
+      cidr = "10.0.0.0/24"
+      az   = "us-east-1a"
     },
     {
-      name = "subnet-02",
-      cidr = "10.0.1.0/24",
-      az = "us-east-1b",
-    }
+      name = "subnet-02"
+      cidr = "10.0.1.0/24"
+      az   = "us-east-1b"
+    },
   ]
 }
