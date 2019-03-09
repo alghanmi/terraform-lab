@@ -1,6 +1,6 @@
 # Terraform Lab
 
-Terraform lab material to go with the [Introduction to Terraform](http://bit.ly/sgvlug-terraform-intro) presentation. The goal of this presentation is to introduce people to terraform, its concepts and make them comfortable in reading terraform docs and code.
+Terraform lab material to go with the [Introduction to Terraform](http://bit.ly/tf-in-50min) presentation. The goal of this presentation is to introduce people to terraform, its concepts and make them comfortable in reading terraform docs and code.
 
 ## Lab Order
 
