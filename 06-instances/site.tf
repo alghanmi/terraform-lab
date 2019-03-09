@@ -16,7 +16,7 @@ data "aws_ami" "ubuntu" {
 
 resource "aws_key_pair" "rami_alghanmi" {
   key_name   = "rami_alghanmi"
-  public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDGnvL6iCCx/yJGXjkTJ8aL5DLDOWoojme8HqHfr6wQBiBSMG4aUQlV7d5GxIdhg49StDr39nGDpsSTyrlRILshRphwscBo7KKrZU8opSMxTcby8oRaCGPq9SbkMbasOXSHywXtY3OnbFioaeXaODuOMO8aGCXLSEsebi0qAZzb592G+TixtOklkBywHpchyuyHyM+3+eGflqCdfg5O7hsKol8gSINBhnLsFT6BmUP8IwRs0nGTMzdWSna/K5ijH07tqWIuoK4pApJGDRLOIuxoDVlzp4aFIx0AK+haUNcX6sU672J9aT4ImwObw9Cg+sUNta18YFvj+qhFKICf9siyWa/3d41Lv5e7bMRhh7z7i4LCbDegO3W3qXefI9BzUOgeYiNqee0nzrX+QMy9T7+jmLorq/VfyYWbmkPv6fu/kpjpYeYbRvFndc4QWHRpgRP19VHVxiTyj1PZJlkJXd2lplB9R1JeFJyr1m28o+Z4HP660+3MrWj5ynx7Mofn4/frmBa5lBIi5cALOeWFuN/9E9/FK55cstagGtkbvC5IXuub+yqabDaZJ4ByT0YQ8JimL/QC53rBvNVilxBv+UK5gSg8U+EB15yTJoZP8DupBVTAdRQyau1XzplFCfaDVJSCJb9hr7bAfBUfU69mya9MiUn7GGd9zXPSMaQiJX41HQ=="
+  public_key = "${var.ssh_key}"
 }
 
 resource "aws_security_group" "allow_ssh_ingress" {
@@ -43,7 +43,7 @@ resource "aws_security_group" "allow_ssh_ingress" {
   )}"
 }
 
-resource "aws_instance" "sgvlug_instance" {
+resource "aws_instance" "instance" {
   count         = "${var.instance_count}"
   ami           = "${data.aws_ami.ubuntu.id}"
   instance_type = "t2.nano"

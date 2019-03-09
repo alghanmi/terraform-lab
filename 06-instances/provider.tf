@@ -6,12 +6,12 @@ provider "aws" {
 
 terraform {
   backend "s3" {
-    bucket         = "sgvlug-terraform-state"
+    bucket         = "tflab-terraform-statelock-416373849276"
     key            = "terraform-lab/instances"
-    region         = "us-east-1"
-    profile        = "sgvlug"
+    region         = "us-west-2"
+    profile        = "scale"
     encrypt        = true
-    dynamodb_table = "sgvlug-terraform-statelock"
+    dynamodb_table = "tflab-terraform-statelock"
   }
 }
 
@@ -19,9 +19,9 @@ data "terraform_remote_state" "networking" {
   backend = "s3"
 
   config {
-    bucket  = "sgvlug-terraform-state"
+    bucket  = "tflab-terraform-statelock-416373849276"
     key     = "terraform-lab/networking"
-    region  = "us-east-1"
-    profile = "sgvlug"
+    region  = "us-west-2"
+    profile = "scale"
   }
 }

@@ -1,5 +1,5 @@
 variable "resource_prefix" {
-  default = "sgvlug"
+  default = "scale"
 }
 
 variable "vpc" {
@@ -18,12 +18,12 @@ variable "subnets" {
     {
       name = "subnet-01"
       cidr = "10.0.0.0/24"
-      az   = "us-east-1a"
+      az   = "us-west-2a"
     },
     {
       name = "subnet-02"
       cidr = "10.0.1.0/24"
-      az   = "us-east-1b"
+      az   = "us-west-2b"
     },
   ]
 }
