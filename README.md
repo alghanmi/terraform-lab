@@ -11,9 +11,9 @@ The lab follows the presentation and moves from one exercise to another. Below i
 The lab assumes you have an [AWS Credentials](https://docs.aws.amazon.com/cli/latest/userguide/cli-config-files.html) file setup with a user _profile_. For the purposes of this lab, you should setup your environment to use this profile you created and `us-west-2` as the default region. Execute the following commands:
 
 ```bash
+export AWS_DEFAULT_REGION us-west-2
 export AWS_ACCOUNT_ID=$(aws sts get-caller-identity | jq --raw-output '.Account')
 export AWS_USER=$(aws sts get-caller-identity | jq --raw-output '.Arn' | awk -F'/' '{ print $2 }')
-export AWS_DEFAULT_REGION us-west-2
 ```
 
 ### 2. Create State Backend and Lock Table
@@ -39,13 +39,12 @@ aws s3api put-bucket-versioning                          \
     --bucket tflab-terraform-statelock-${AWS_ACCOUNT_ID} \
     --versioning-configuration Status=Enabled
 
-# Enable bucket encryption
+# Enable default bucket encryption
 aws s3api put-bucket-encryption                          \
     --bucket tflab-terraform-statelock-${AWS_ACCOUNT_ID} \
     --server-side-encryption-configuration '{"Rules": [{"ApplyServerSideEncryptionByDefault": {"SSEAlgorithm": "AES256"}}]}'
 ```
 
-You should consider setting up default bucket encryption policy and versioning.
 
 ### 3. Run Through the Labs
 
