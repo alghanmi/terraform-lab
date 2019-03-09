@@ -1,5 +1,5 @@
 variable "resource_prefix" {
-  default = "sgvlug"
+  default = "scale"
 }
 
 variable "vpc_name" {
