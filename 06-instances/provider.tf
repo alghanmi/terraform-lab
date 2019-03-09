@@ -1,7 +1,7 @@
 provider "aws" {
   version = "~> 1.0"
-  region  = "us-east-1"
-  profile = "sgvlug"
+  region  = "us-west-2"
+  profile = "scale"
 }
 
 terraform {
